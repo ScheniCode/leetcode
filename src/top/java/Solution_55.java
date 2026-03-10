@@ -1,4 +1,4 @@
-package top;
+package top.java;
 
 /**
  * <a href="https://leetcode.cn/problems/jump-game/description/?envType=study-plan-v2&envId=top-100-liked">55. 跳跃游戏</a>

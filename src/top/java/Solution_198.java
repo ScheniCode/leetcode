@@ -1,4 +1,4 @@
-package top;
+package top.java;
 
 /**
  * <a href="https://leetcode.cn/problems/house-robber/?envType=study-plan-v2&envId=top-100-liked">198. 打家劫舍</a>

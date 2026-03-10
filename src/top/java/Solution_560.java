@@ -1,4 +1,4 @@
-package top;
+package top.java;
 
 /**
  * <a href="https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked">560. 和为 K 的子数组</a>

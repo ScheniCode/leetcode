@@ -1,4 +1,4 @@
-package top;
+package top.java;
 
 /**
  * <a href="https://leetcode.cn/problems/diameter-of-binary-tree/description/?envType=study-plan-v2&envId=top-100-liked">543. 二叉树的直径</a>

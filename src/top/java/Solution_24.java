@@ -1,4 +1,4 @@
-package top;
+package top.java;
 
 /**
  * <a href="https://leetcode.cn/problems/swap-nodes-in-pairs/?envType=study-plan-v2&envId=top-100-liked">24. 两两交换链表中的节点</a>
