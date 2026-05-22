@@ -6,12 +6,13 @@ https://leetcode.cn/problems/3sum/?envType=study-plan-v2&envId=top-100-liked
 
 """
 from typing import Any
+from unittest import result
 
 
 # todo 查看最优解  暴力解超时了
 
 class Solution:
-    def threeSum(self, nums: list[int]) -> list[list[int]]:
+    def threeSum1(self, nums: list[int]) -> list[list[int]]:
         up: list[int] = []
         zero: list[int] = []
         low: list[int] = []
@@ -45,7 +46,42 @@ class Solution:
                             result.append([b, a, -c])
         return result
 
-if __name__ == "__main__":
-    nums = [-1, 0, 1, 2, -1, -4]
-    print(Solution().threeSum(nums))
+    # 还是超时
+    def threeSum2(self, nums: list[int]) -> list[list[int]]:
+        result: list[list[int]] = []
+        nums.sort()
+        l = len(nums)
+        for i in range(0, l - 2):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            for j in range(i + 1, l - 1):
+                if j > i + 1 and nums[j] == nums[j - 1]:
+                    continue
+                for k in range(l-1, j,-1):
+                    if k < l-1 and nums[k] == nums[k + 1]:
+                        continue
+                    temp = nums[i] + nums[j] + nums[k]
+                    if temp < 0:
+                        break
+                    elif temp == 0:
+                        result.append([nums[i], nums[j], nums[k]])
+        return result
 
+    # def threeSum2(self, nums: list[int]) -> list[list[int]]:
+    #     nums.sort()
+    #     ans = []
+    #     l = len(nums)
+    #     for i in range(0, l - 2):
+    #         if i > 0 and nums[i] == nums[i - 1]:
+    #             continue
+    #         k = l - 1
+    #         for j in range(i + 1, l - 1):
+    #             if j > i + 1 and nums[j] == nums[j - 1]:
+    #                 continue
+    #             tenp =
+
+
+if __name__ == "__main__":
+    # nums = [-1, 0, 1, 2, -1, -4]
+    # print(Solution().threeSum(nums))
+    print([1, 3, 2] == [1, 2, 3])
