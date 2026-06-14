@@ -7,9 +7,32 @@ https://leetcode.cn/problems/palindrome-partitioning/?envType=study-plan-v2&envI
 from typing import List
 
 
-def backtrack(param, ss, rr, ans):
+# 最优解
+# 动态规划  dp[i][j]  标注ij区间是否是会回文
+# s[i] == s[j] 且 s[i+1] == s[j-1] 则ij区间是回文
 
-    pass
+def subStr(ss, star, end):
+    s = ''
+    for i in range(star, end):
+        if ss[i] != '#':
+            s += ss[i]
+    return s
+
+
+def backtrack(i, index, ss, rr, container, ans):
+    if i == len(ss):
+        if index == len(ss):
+            ans.append(container.copy())
+        return
+    if ss[i] == '#' and i == index:
+        backtrack(i + 1, index + 1, ss, rr, container, ans)
+        return
+    if rr[i] - 1 >= i - index:
+        r = i - index
+        container.append(subStr(ss, index, i + r + 1))
+        backtrack(i + r + 1, i + r + 1, ss, rr, container, ans)
+        container.pop()
+    backtrack(i + 1, index, ss, rr, container, ans)
 
 
 class Solution:
@@ -27,4 +50,11 @@ class Solution:
                 r += 1
             rr.append(r)
         ans = []
-        return backtrack(0,ss,rr,ans)
+        container = []
+        backtrack(0, 0, ss, rr, container, ans)
+        return ans
+
+
+if __name__ == '__main__':
+    s = "aab"
+    print(Solution().partition(s))
